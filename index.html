@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Pintu</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2 class="nav">Hey! Pintu Pramukh Prajapati Sends the gift for you scrtch the cards to get your gift</h2>
+  <div class="container" class="scratch-card" >
+    <!-- Birthday Card Section -->
+    <div class="card-container">
+      <div id="birthday-card">
+        <canvas id="birthdayCanvas"></canvas>
+        <div class="hidden-message">
+          <h1>🎉 Happy Birthday Pintu! 🎂</h1>
+          <p>
+            Life is a beautiful journey, and today is your special milestone. 
+            Celebrate the joy, love, and laughter that makes you unique!
+          </p>
+          <p>💖 Let’s make this day unforgettable! 💖</p>
+        </div>
+        <div class="pre-scratch-text">Scratch to open your gift!</div>
+      </div>
+    </div>
+
+    <!-- Memories Section -->
+    <div class="memories-section">
+      <h2 style="color: whitesmoke;">Memories</h2>
+      <div class="memories-grid">
+        <div class="scratch-card memory-card" data-memory="memory1">
+          <canvas class="memoryCanvas"></canvas>
+          <div class="hidden-image" style="background-image: url('./Text\ to\ Speech\ 1.png')"></div>
+          <div class="pre-scratch-text">Scratch to open your memory!</div>
+        </div>
+        <div class="scratch-card memory-card" data-memory="memory2">
+          <canvas class="memoryCanvas"></canvas>
+          <div class="hidden-image" style="background-image: url('memory2.jpg')"></div>
+          <div class="pre-scratch-text">Scratch to open your memory!</div>
+        </div>
+        <div class="scratch-card memory-card" data-memory="memory3">
+          <canvas class="memoryCanvas"></canvas>
+          <div class="hidden-image" style="background-image: url('memory3.jpg');"></div>
+          <div class="pre-scratch-text">Scratch to open your memory!</div>
+        </div>
+        <div class="scratch-card memory-card" data-memory="memory4">
+          <canvas class="memoryCanvas"></canvas>
+          <div class="hidden-image" style="background-image: url('memory4.jpg');"></div>
+          <div class="pre-scratch-text">Scratch to open your memory!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Big Image Popup -->
+    <div class="big-image-container" id="bigImageContainer">
+      <div id="bigImageContent">
+        <div id="cancelButton">Cancel</div>
+        <div id="bigImage"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
