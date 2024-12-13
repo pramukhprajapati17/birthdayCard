@@ -98,7 +98,7 @@ document.getElementById('cancelButton').addEventListener('click', () => {
 
 // manually added
 
-function hideElement() {
-  var element = document.querySelector('.pre-scratch-text-card');
-  element.style.display = 'none';
-}
+// function hideElement() {
+//   var element = document.querySelector('.pre-scratch-text-card');
+//   element.style.display = 'none';
+// }
