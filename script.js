@@ -93,3 +93,12 @@ document.querySelectorAll('.memoryCanvas').forEach((canvas, index) => {
 document.getElementById('cancelButton').addEventListener('click', () => {
   document.getElementById('bigImageContainer').style.display = 'none';
 });
+
+
+
+// manually added
+
+function hideElement() {
+  var element = document.querySelector('.pre-scratch-text-card');
+  element.style.display = 'none';
+}
