@@ -128,8 +128,8 @@ body {
 }
 
 #bigImage {
-  width: 80%;
-  height: 80%;
+  width: 195px;
+  height: 153px;
   background-size: cover;
   background-position: center;
   display: block;
