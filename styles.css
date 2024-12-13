@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
-  background: linear-gradient(to bottom, #FF958F, #FDBB75);
+  background: linear-gradient(to bottom, #fe9994, #ffce9a);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,7 +13,11 @@ body {
 
 
 .nav{
-  padding: 10px, 10px, 10px, 10px;
+  padding: 15px, 20px, 10px, 20px;
+  width: 400px;
+  text-align: justify;
+  color: #FF958F;
+  background-color: #F5F5F5;
 }
 
 /* Container */
@@ -54,7 +58,7 @@ body {
 
 .hidden-message h1 {
   font-size: 1.8rem;
-  color: #C36B85;
+  color: whitesmoke;
   margin-bottom: 15px;
 }
 
@@ -62,6 +66,7 @@ body {
   font-size: 1.2rem;
   color: #444;
   position: relative;
+  font-style: italic;
 }
 
 .author {
@@ -134,8 +139,8 @@ body {
 }
 
 #bigImage {
-  width: 195px;
-  height: 153px;
+  width: 300px;
+  height: 235px;
   background-size: cover;
   background-position: center;
   display: block;
