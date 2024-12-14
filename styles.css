@@ -12,11 +12,13 @@ body {
   overflow-x: hidden;
 }
 
-
+h1{
+  text-align: center;
+}
 .nav{
   max-width: 280px;
   text-align: justify;
-  color: #FF958F;
+  color: black;
   background-color: #F5F5F5;
 }
 
@@ -95,9 +97,14 @@ body {
 
 /* Memories Section */
 .memories-section h2 {
-  font-size: 1.5rem;
-  color: #FF958F;
-  margin-bottom: 20px;
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
 }
 
 .memories-grid {
@@ -138,6 +145,11 @@ body {
   justify-content: center;
   align-items: center;
   z-index: 10;
+}
+
+#bigImage{
+  height: 333px;
+  width: 250px;
 }
 
 #bigImageContent {

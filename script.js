@@ -1,3 +1,11 @@
+// Select the element with ID 'bigImage'
+let bigImage = document.getElementById('bigImage');
+
+// Set the height and width of the element in pixels
+bigImage.style.height = '250px';
+bigImage.style.width = '333px';
+
+
 let memoryImageShown = {}; // Track whether an image has been shown
 let birthdayCardRevealed = false; // Track if the birthday card message has been revealed
 
