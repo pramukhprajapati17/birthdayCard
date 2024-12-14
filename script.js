@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const hiddenVideo = document.querySelector(".hidden-video");
   const preScratchText = document.querySelector(".pre-scratch-text");
   const closeButton = document.querySelector(".close-button");
-
+  const giftTitle = document.querySelector(".giftTitle");
   if (giftCanvas && hiddenVideo) {
     const ctx = giftCanvas.getContext("2d");
     giftCanvas.width = 280;
@@ -159,8 +159,9 @@ document.addEventListener("DOMContentLoaded", () => {
       // Reveal video if scratched area exceeds 30%
       if (scratchPercent > 30) {
         hiddenVideo.style.display = "block";
-        preScratchText.style.display = "none";
+        // preScratchText.style.display = "none";
         giftCanvas.style.display = "none";
+        giftTitle.style.display = "none";
       }
     };
 
