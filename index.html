@@ -11,7 +11,7 @@
   <div class="container" class="scratch-card" >
     <!-- Birthday Card Section -->
     <div class="card-container">
-      <div id="birthday-card">
+      <div id="birthday-card scratch-card-">
         <canvas id="birthdayCanvas"></canvas>
         <div class="hidden-message">
           <h1>🎉 Happy Birthday Pintu! 🎂</h1>
@@ -22,7 +22,7 @@
           <p>💖 Let’s make this day unforgettable! 💖</p>
           <p class="author">- Pramukh Prajapati</p>
         </div>
-        <div class="pre-scratch-text" onclick="hideElement()">☝️☝️Scratch top of the card open your gift!</div>
+        <div class="pre-scratch-text" onclick="hideElement()"></div>
       </div>
     </div>
 
@@ -62,6 +62,32 @@
     </div>
 
   </div>
+
+   <!-- Gift Section -->
+<div class="gift-section">
+  <h2 style="background-color: whitesmoke;">🎁 Your Gift 🎁</h2>
+  <div class="scratch-card gift-card">
+    <canvas class="giftCanvas"></canvas>
+    <div class="hidden-video">
+      <div class="video-overlay">
+        <iframe 
+          id="giftVideo"
+          width="100%"
+          height="100%"
+          src="https://www.youtube.com/embed/wSGoUSwNb44" 
+          title="YouTube video player" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+        <button class="close-button">×</button>
+      </div>
+    </div>
+    <div class="pre-scratch-text">Scratch to reveal your gift!</div>
+  </div>
+</div>
+
+
 
   <script src="script.js"></script>
 </body>

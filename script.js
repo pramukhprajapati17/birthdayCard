@@ -2,13 +2,14 @@ let memoryImageShown = {}; // Track whether an image has been shown
 let birthdayCardRevealed = false; // Track if the birthday card message has been revealed
 
 function setupScratchCard(canvas, revealContentCallback, preScratchText, memoryCard) {
+  canvas.width='290';
+  canvas.height='656';
   const ctx = canvas.getContext("2d");
   let isScratching = false;
 
   // Initialize scratch layer
   ctx.fillStyle = '#a3a3a3';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-
   // Display "Scratch to open your gift!" text
   preScratchText.style.display = 'block';
 
@@ -28,7 +29,7 @@ function setupScratchCard(canvas, revealContentCallback, preScratchText, memoryC
 
     ctx.globalCompositeOperation = 'destination-out';
     ctx.beginPath();
-    ctx.arc(x, y, 20, 0, Math.PI * 2);
+    ctx.arc(x, y, 30, 0, Math.PI * 2);
     ctx.fill();
 
     if (isRevealed(ctx, canvas)) {
@@ -45,7 +46,7 @@ function setupScratchCard(canvas, revealContentCallback, preScratchText, memoryC
     for (let i = 3; i < pixels.length; i += 4) {
       if (pixels[i] === 0) clearPixels++;
     }
-    return clearPixels / (pixels.length / 4) > 0.3; // 30% reveal threshold
+    return clearPixels / (pixels.length/4) > 0.3; // 30% reveal threshold
   }
 }
 
@@ -62,7 +63,7 @@ setupScratchCard(birthdayCanvas, () => {
 document.querySelectorAll('.memoryCanvas').forEach((canvas, index) => {
   const preScratchText = canvas.parentElement.querySelector('.pre-scratch-text');
   const memoryContent = document.querySelector(`.memory-card[data-memory="memory${index + 1}"] .hidden-image`);
-  const memoryMessage = `Memory ${index + 1}: This is a special memory shared together!`; // Customize the message for each memory
+  const memoryMessage = ``; // Customize the message for each memory
   const memoryCard = document.querySelector(`.memory-card[data-memory="memory${index + 1}"]`);
   
   // Store the background image for later use after scratch
@@ -102,3 +103,71 @@ document.getElementById('cancelButton').addEventListener('click', () => {
 //   var element = document.querySelector('.pre-scratch-text-card');
 //   element.style.display = 'none';
 // }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const giftCanvas = document.querySelector(".giftCanvas");
+  const hiddenVideo = document.querySelector(".hidden-video");
+  const preScratchText = document.querySelector(".pre-scratch-text");
+  const closeButton = document.querySelector(".close-button");
+
+  if (giftCanvas && hiddenVideo) {
+    const ctx = giftCanvas.getContext("2d");
+    giftCanvas.width = 280;
+    giftCanvas.height = 200;
+
+    // Set the fill style to #a3a3a3
+    ctx.fillStyle = '#a3a3a3';
+    ctx.fillRect(0, 0, giftCanvas.width, giftCanvas.height);
+
+    // Store scratched areas
+    let scratched = 0;
+
+    // Mouse/touch handling
+    let isScratching = false;
+
+    const startScratching = () => (isScratching = true);
+    const stopScratching = () => (isScratching = false);
+
+    const scratch = (e) => {
+      if (!isScratching) return;
+
+      const rect = giftCanvas.getBoundingClientRect();
+      const x = e.touches ? e.touches[0].clientX - rect.left : e.clientX - rect.left;
+      const y = e.touches ? e.touches[0].clientY - rect.top : e.clientY - rect.top;
+
+      ctx.globalCompositeOperation = "destination-out";
+      ctx.beginPath();
+      ctx.arc(x, y, 15, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Count cleared pixels
+      const imageData = ctx.getImageData(0, 0, giftCanvas.width, giftCanvas.height);
+      scratched = imageData.data.filter((pixel, index) => index % 4 === 3 && pixel === 0).length;
+
+      const totalPixels = giftCanvas.width * giftCanvas.height;
+      const scratchPercent = (scratched / totalPixels) * 100;
+
+      // Reveal video if scratched area exceeds 30%
+      if (scratchPercent > 30) {
+        hiddenVideo.style.display = "block";
+        preScratchText.style.display = "none";
+        giftCanvas.style.display = "none";
+      }
+    };
+
+    // Add event listeners
+    giftCanvas.addEventListener("mousedown", startScratching);
+    giftCanvas.addEventListener("mouseup", stopScratching);
+    giftCanvas.addEventListener("mousemove", scratch);
+
+    giftCanvas.addEventListener("touchstart", startScratching);
+    giftCanvas.addEventListener("touchend", stopScratching);
+    giftCanvas.addEventListener("touchmove", scratch);
+
+    // Close button to hide the video overlay
+    closeButton.addEventListener("click", () => {
+      hiddenVideo.style.display = "none";
+    });
+  }
+});
