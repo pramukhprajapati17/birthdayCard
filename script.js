@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       ctx.globalCompositeOperation = "destination-out";
       ctx.beginPath();
-      ctx.arc(x, y, 15, 0, Math.PI * 2);
+      ctx.arc(x, y, 30, 0, Math.PI * 2);
       ctx.fill();
 
       // Count cleared pixels
